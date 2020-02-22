@@ -48,7 +48,7 @@ module.exports = () => {
 			// Enable hot reload
 			hot: true,
 			host,
-			port: 3000,
+			port: process.env.PORT,
 			// Public path is root of content base
 			publicPath: '/'
 		},

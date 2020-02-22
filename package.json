@@ -1,0 +1,65 @@
+{
+	"name": "core-react-with-router",
+	"version": "1.0.0",
+	"description": "This README would normally document whatever steps are necessary to get your application up and running.",
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack-dev-server --mode development --open",
+		"dev": "webpack-dev-server --config ./webpack.config.js",
+		"build": "webpack --mode production"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://trungtrankd@bitbucket.org/trungtrankd/core-react-with-router.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"homepage": "https://bitbucket.org/trungtrankd/core-react-with-router#readme",
+	"devDependencies": {
+		"@babel/core": "^7.8.4",
+		"babel-core": "^6.26.0",
+		"babel-eslint": "^10.0.3",
+		"babel-loader": "^7.1.4",
+		"babel-preset-env": "^1.6.1",
+		"babel-preset-react": "^6.24.1",
+		"css-loader": "^3.4.2",
+		"dotenv": "^8.2.0",
+		"eslint": "^6.8.0",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-import": "^2.20.1",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-react": "^7.18.3",
+		"html-webpack-plugin": "^3.2.0",
+		"husky": "^4.2.3",
+		"lint-staged": "^10.0.7",
+		"node-sass": "^4.13.1",
+		"prettier": "^1.19.1",
+		"pretty-quick": "^2.0.1",
+		"sass-loader": "^8.0.2",
+		"style-loader": "^1.1.3",
+		"webpack": "^4.41.6",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.10.3",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"fs": "^0.0.1-security",
+		"path": "^0.12.7"
+	},
+	"dependencies": {
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"react-router-dom": "^5.1.2"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx}": [
+			"eslint",
+			"pretty-quick — staged",
+			"git add"
+		]
+	}
+}

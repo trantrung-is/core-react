@@ -1,0 +1,16 @@
+{
+	"presets": ["env", "react"],
+	"plugins": [
+		[
+			// https://github.com/tleunen/babel-plugin-module-resolver
+			"module-resolver",
+			{
+				"root": ["./"],
+				"alias": {
+					"src": "./src",
+					"pages": "./src/pages"
+				}
+			}
+		]
+	]
+}

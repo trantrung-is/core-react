@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 const path = require('path');
 // const fs = require('fs');
 const webpack = require('webpack');
 const dotenv = require('dotenv');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 // App diretory
 // const appDirectory = fs.readFileSync(process.cwd());
@@ -26,6 +28,14 @@ module.exports = () => {
 	// call dotenv and it will return an Object with a parsed key
 	const env = dotenv.config().parsed;
 
+	if (!env) {
+		console.error('-----------------------------------------------------');
+		console.error('|                                                   |');
+		console.error('|             File .env does not exist.             |');
+		console.error('|                                                   |');
+		console.error('-----------------------------------------------------');
+	}
+
 	// reduce it to a nice object, the same as before
 	const envKeys = Object.keys(env).reduce((prev, next) => {
 		prev[`process.env.${next}`] = JSON.stringify(env[next]);
@@ -37,6 +47,7 @@ module.exports = () => {
 		// mode: 'development',
 		// Entry point of app
 		// entry: resolveAppPath('src'),
+		entry: ['./src/'],
 		output: {
 			// Development filename output
 			// file: 'static/js/bundle.js'
@@ -71,7 +82,10 @@ module.exports = () => {
 			// get template html
 			htmlWebpackPlugin,
 			// config file .env
-			new webpack.DefinePlugin(envKeys)
+			new webpack.DefinePlugin(envKeys),
+			new ProgressBarPlugin({
+				clear: false
+			})
 		]
 	};
 };

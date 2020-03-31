@@ -26,21 +26,21 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 
 module.exports = () => {
 	// call dotenv and it will return an Object with a parsed key
-	const env = dotenv.config().parsed;
+	// const env = dotenv.config().parsed;
 
-	if (!env) {
-		console.error('-----------------------------------------------------');
-		console.error('|                                                   |');
-		console.error('|             File .env does not exist.             |');
-		console.error('|                                                   |');
-		console.error('-----------------------------------------------------');
-	}
+	// if (!env) {
+	// 	console.error('-----------------------------------------------------');
+	// 	console.error('|                                                   |');
+	// 	console.error('|             File .env does not exist.             |');
+	// 	console.error('|                                                   |');
+	// 	console.error('-----------------------------------------------------');
+	// }
 
 	// reduce it to a nice object, the same as before
-	const envKeys = Object.keys(env).reduce((prev, next) => {
-		prev[`process.env.${next}`] = JSON.stringify(env[next]);
-		return prev;
-	}, {});
+	// const envKeys = Object.keys(env).reduce((prev, next) => {
+	// 	prev[`process.env.${next}`] = JSON.stringify(env[next]);
+	// 	return prev;
+	// }, {});
 
 	return {
 		// Environment mode
@@ -83,7 +83,7 @@ module.exports = () => {
 			// get template html
 			htmlWebpackPlugin,
 			// config file .env
-			new webpack.DefinePlugin(envKeys),
+			// new webpack.DefinePlugin(envKeys),
 			new ProgressBarPlugin({
 				clear: false
 			})
